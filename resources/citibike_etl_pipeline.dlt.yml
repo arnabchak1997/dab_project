@@ -1,0 +1,20 @@
+resources:
+  pipelines:
+    pipeline_citibike_dlt_pipeline:
+      name: citibike_dlt_pipeline
+      configuration:
+        catalog: "${var.catalog}"
+      libraries:
+        - notebook:
+            path: ../citibike_etl/dlt/bronze/01_bronze_citibike.ipynb
+        - notebook:
+            path: ../citibike_etl/dlt/silver/02_silver_citibike.ipynb
+        - notebook:
+            path: ../citibike_etl/dlt/gold/03_gold_citibike_daily_ride_summary.ipynb
+        - notebook:
+            path: ../citibike_etl/dlt/gold/03_gold_citibike_daily_station_performance.ipynb
+      schema: default
+      development: "${var.dev_flag}"
+      photon: true
+      catalog: "${var.catalog}"
+      serverless: true
