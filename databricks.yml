@@ -34,29 +34,29 @@ targets:
   test:
     mode: production
     workspace:
-      host: https://adb-7405615467031513.13.azuredatabricks.net/
+      host: https://adb-7405608415883903.3.azuredatabricks.net
       # We explicitly deploy to /Workspace/Users/arnabsmi@gmail.com to make sure we only have a single copy.
       root_path: /Workspace/Shared/.bundle/${bundle.name}/${bundle.target}
     variables:
       catalog: "citibike_test"
       dev_flag: false
     permissions:
-      - user_name: arnabsmi@gmail.com
+      - service_principal_name: 31a7087d-b115-47e0-ac61-d20a87fd9962
         level: CAN_MANAGE
     run_as:
-      user_name: arnabsmi@gmail.com
+      service_principal_name: 31a7087d-b115-47e0-ac61-d20a87fd9962
 
   prod:
     mode: production
     workspace:
-      host: https://adb-7405618989580976.16.azuredatabricks.net/
+      host: https://adb-7405605691758347.7.azuredatabricks.net
       # We explicitly deploy to /Workspace/Users/arnabsmi@gmail.com to make sure we only have a single copy.
       root_path: /Workspace/Shared/.bundle/${bundle.name}/${bundle.target}
     variables:
       catalog: "citibike_prod"
       dev_flag: false
     permissions:
-      - user_name: arnabsmi@gmail.com
+      - service_principal_name: ecd322e1-68d4-4b3e-91f8-b08cfb6b6227
         level: CAN_MANAGE
     run_as:
-      user_name: arnabsmi@gmail.com
+      service_principal_name: ecd322e1-68d4-4b3e-91f8-b08cfb6b6227
